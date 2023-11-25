@@ -14,7 +14,7 @@ df = pd.read_parquet('datos_parquet/df_UserForGenre.parquet')
 df_UsersRecommend = pd.read_parquet('datos_parquet/df_UsersRecommend.parquet')
 df_UsersWorstDeveloper = pd.read_parquet('datos_parquet/df_UsersWorstDeveloper.parquet')
 df_SentimentAnalysis = pd.read_parquet('datos_parquet/df_SentimentAnalysis.parquet')
-df_recomendacion_juego = pd.read_parquet('')
+df_recomendacion_juego = pd.read_parquet('datos_parquet/df_recomendacion_juego.parquet')
 
 
 
