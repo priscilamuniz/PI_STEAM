@@ -106,7 +106,7 @@ def recomendacion_juego(juego):
         None: Esta función imprime una lista de juegos 5 similares al dado.
 
     '''
-    similares = df_i_sim_cos.sort_values(by=juego, ascending=False).index[1:6]
+    similares = df_recomendacion_juego.sort_values(by=juego, ascending=False).index[1:6]
     print(f'Los 5 juegos más similares a {juego} son:\n')
     for count, item in enumerate(similares, start=1):
         print(f'No. {count}: {item}')
