@@ -14,6 +14,7 @@ df = pd.read_parquet('datos_parquet/df_UserForGenre.parquet')
 df_UsersRecommend = pd.read_parquet('datos_parquet/df_UsersRecommend.parquet')
 df_UsersWorstDeveloper = pd.read_parquet('datos_parquet/df_UsersWorstDeveloper.parquet')
 df_SentimentAnalysis = pd.read_parquet('datos_parquet/df_SentimentAnalysis.parquet')
+df_recomendacion_juego = pd.read_parquet('')
 
 
 
@@ -77,6 +78,7 @@ def UsersWorstDeveloper(anio:int):
 
     return resultados
 
+
 @app.get('/SentimentAnalysis')
 def SentimentAnalysis(developer:str):
     
@@ -92,3 +94,19 @@ def SentimentAnalysis(developer:str):
     return final
 
 
+@app.get('/recomendacion_juego')
+def recomendacion_juego(juego):
+    '''
+    Muestra una lista de juegos similares a un juego dado.
+
+    Args:
+        game (str): El nombre del juego para el cual se desean encontrar juegos similares.
+
+    Returns:
+        None: Esta función imprime una lista de juegos 5 similares al dado.
+
+    '''
+    similares = df_i_sim_cos.sort_values(by=juego, ascending=False).index[1:6]
+    print(f'Los 5 juegos más similares a {juego} son:\n')
+    for count, item in enumerate(similares, start=1):
+        print(f'No. {count}: {item}')
