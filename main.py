@@ -80,7 +80,7 @@ def UsersRecommend(anio:int):
     name_counts = df_best_reviews_3['app_name'].value_counts().head(3)
  
     resultados = []
-    for puesto, (name, count) in enumerate(name_counts.items(), start=1):                            # Crear una lista de diccionarios con el formato solicitado
+    for puesto, (name, count) in enumerate(name_counts.items(), start=1):                            
         resultados.append({f"Puesto {puesto}": name})
 
     return resultados
@@ -101,7 +101,7 @@ def UsersWorstDeveloper(anio:int):
     developer_counts = df_worst_reviews_3['developer'].value_counts().head(3)
  
     resultados = []
-    for puesto, (developer, count) in enumerate(developer_counts.items(), start=1):                            # Crear una lista de diccionarios con el formato solicitado
+    for puesto, (developer, count) in enumerate(developer_counts.items(), start=1):                            
         resultados.append({f"Puesto {puesto}": developer})
 
     return resultados
@@ -130,8 +130,8 @@ def SentimentAnalysis(developer:str):
     return final
 
 
-@app.get('/recomendacion_juego')
-def recomendacion_juego(juego):
+@app.get("/recomendacion_juego")
+def recomendacion_juego(juego: str):
     '''
     Muestra una lista de 5 juegos similares a un juego dado.
 
@@ -140,6 +140,5 @@ def recomendacion_juego(juego):
 
     '''
     similares = df_recomendacion_juego.sort_values(by=juego, ascending=False).index[1:6]
-    print(f'Los 5 juegos más similares a {juego} son:\n')
-    for count, item in enumerate(similares, start=1):
-        print(f'No. {count}: {item}')
+    juegos_similares = [f"No. {count}: {item}" for count, item in enumerate(similares, start=1)]
+    return {"Los 5 juegos más similares son": juegos_similares}
