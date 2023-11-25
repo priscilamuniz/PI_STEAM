@@ -9,11 +9,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 app = FastAPI()
 
 # Carga los datos parquet en un dataframe de pandas
-df_PlaytimeGenre = pd.read_parquet('datos_parquet\df_PlayTimeGenre.parquet')
-df = pd.read_parquet('datos_parquet\df_UserForGenre.parquet')
-df_UsersRecommend = pd.read_parquet('datos_parquet\df_UsersRecommend.parquet')
-df_UsersWorstDeveloper = pd.read_parquet('datos_parquet\df_UsersWorstDeveloper.parquet')
-df_SentimentAnalysis = pd.read_parquet('datos_parquet\df_SentimentAnalysis.parquet')
+df_PlaytimeGenre = pd.read_parquet('datos_parquet/df_PlayTimeGenre.parquet')
+df = pd.read_parquet('datos_parquet/df_UserForGenre.parquet')
+df_UsersRecommend = pd.read_parquet('datos_parquet/df_UsersRecommend.parquet')
+df_UsersWorstDeveloper = pd.read_parquet('datos_parquet/df_UsersWorstDeveloper.parquet')
+df_SentimentAnalysis = pd.read_parquet('datos_parquet/df_SentimentAnalysis.parquet')
 
 
 
@@ -51,6 +51,10 @@ def UsersRecommend(anio:int):
 
     mascara = (df_UsersRecommend['year_posted'] == anio)   
     df_best_reviews_3 = df_UsersRecommend[mascara]
+
+   # if df_best_reviews_3.empty:
+   #     return 'No hay datos para el género especificado.'
+
     name_counts = df_best_reviews_3['app_name'].value_counts().head(3)
  
     resultados = []
