@@ -20,6 +20,13 @@ df_recomendacion_juego = pd.read_parquet('datos_parquet/df_recomendacion_juego.p
 
 @app.get('/PlayTimeGenre')
 def PlayTimeGenre(genero:str):
+    '''
+    Devuelve el año con más horas jugadas para dicho género
+
+    Argumentos:
+        Género (str): El género del videojuego 
+
+    '''
 
     mascara = (df_PlaytimeGenre['genres'] == genero)
     df_PlayTimeGenre_sorted = df_PlaytimeGenre[mascara].sort_values(by='Total_horas_jugadas', ascending=False).head(1)                       
@@ -31,7 +38,15 @@ def PlayTimeGenre(genero:str):
 
 
 @app.get('/UserForGenre')
-def UserForGenre(genero: str):                     
+def UserForGenre(genero: str):
+    '''
+    Devuelve el usuario que acumula más horas jugadas para un género dado
+    y una lista de acumulación de horas jugadas por año.
+
+    Argumentos:
+        Género (str): El género del videojuego 
+
+    '''                     
     mascara = (df['genres'] == genero)
     df_UserForGenre = df[mascara]
 
@@ -49,7 +64,13 @@ def UserForGenre(genero: str):
 
 @app.get('/UsersRecommend')
 def UsersRecommend(anio:int):
+    '''
+    Muestra el top 3 de juegos MÁS recomendados por usuarios para el año dado
 
+    Argumentos:
+        Año (int): Año del que se necesite la consulta
+
+    '''  
     mascara = (df_UsersRecommend['year_posted'] == anio)   
     df_best_reviews_3 = df_UsersRecommend[mascara]
 
@@ -67,7 +88,14 @@ def UsersRecommend(anio:int):
 
 @app.get('/UsersWorstDeveloper')
 def UsersWorstDeveloper(anio:int):
+    '''
+    Muestra el top 3 de desarrolladoras con juegos MENOS recomendados por usuarios
+    para el año dado
 
+    Argumentos:
+        Año (int): Año del que se necesite la consulta
+
+    ''' 
     mascara = (df_UsersWorstDeveloper['year_posted'] == anio)   
     df_worst_reviews_3 = df_UsersWorstDeveloper[mascara]
     developer_counts = df_worst_reviews_3['developer'].value_counts().head(3)
@@ -81,7 +109,15 @@ def UsersWorstDeveloper(anio:int):
 
 @app.get('/SentimentAnalysis')
 def SentimentAnalysis(developer:str):
-    
+    '''
+    Devuelve un diccionario con el nombre de la desarrolladora y una lista con la 
+    cantidad de registros de reseñas de usuarios (positivos, neutros y negativos)
+
+    Argumentos:
+        Developer (str): Desarrollador del que se quiere saber las reseñas
+
+    ''' 
+
     mascara = (df_SentimentAnalysis['developer'] == developer)
     df1 = df_SentimentAnalysis[mascara]
 
@@ -97,13 +133,10 @@ def SentimentAnalysis(developer:str):
 @app.get('/recomendacion_juego')
 def recomendacion_juego(juego):
     '''
-    Muestra una lista de juegos similares a un juego dado.
+    Muestra una lista de 5 juegos similares a un juego dado.
 
     Args:
-        game (str): El nombre del juego para el cual se desean encontrar juegos similares.
-
-    Returns:
-        None: Esta función imprime una lista de juegos 5 similares al dado.
+        Juego (str): El nombre del juego para el cual se desean encontrar juegos similares.
 
     '''
     similares = df_recomendacion_juego.sort_values(by=juego, ascending=False).index[1:6]
