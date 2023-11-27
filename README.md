@@ -1,5 +1,4 @@
 <h2 align=center>  Proyecto Individual I STEAM</h2>
-# Proyecto de Sistema de Recomendación de Videojuegos para Steam
 
 El presente proyecto se basa en la creación de APIs y un Sistema de recomendación de videojuegos para usuarios de la plataforma Steam. El objetivo es lograr un Producto Mínimo Viable (MVP) que permita ofrecer recomendaciones precisas y útiles a los usuarios, através de los .
 
