@@ -15,7 +15,6 @@ Para este proyecto se proporcionaron 3 datasets:
 * _australian_users_items_ en el que se almacena información del tiempo de juego de cada usuario para los diferentes juegos que ha jugado. 
 * _australian_user_reviews_ en el que se almacena información de los usuarios e información de los reviews de los videojuegos que han jugado. 
 
-Puede consultar los archivos aqui: [output_steam_games](data\output_steam_games.json), [australian_users_items](data\australian_users_items.json), [australian_user_reviews](data\australian_user_reviews.json)
 
 ### Transformaciones y Feature Engineering
 - Se preparó cada dataset previo al Análisis Exploratorio, logrando la lectura de los mismos desanidando algunas columnas que se encontraban como listas de diccionarios o listas; así mismo eliminando columnas innecesarias, inputando con métodos estadísticos y/o eliminando valores nulos.
@@ -25,8 +24,6 @@ Posterior al trabajo con VADER, se definió una ponderación en la que derivado 
     * 1 es para un review neutral
     * 2 es para un review bueno
 
-    Puede consultar los notebooks de cada uno aqui:  
-   [ETL_games](01a_ETL_games.ipynb), [ETL_items](01b_ETL_items.ipynb), [ETL_reviews_VADER](01c_ETL_reviews.ipynb) 
 
 - Se crea el entorno virtual con el framework de FastApi para probar con consultas sencillas.
 
@@ -34,9 +31,7 @@ Posterior al trabajo con VADER, se definió una ponderación en la que derivado 
 
 - Se realizó el Análisis Exploratorio para explorar relaciones, outliers y patrones interesantes en los datos.
 
-    Puede consultar el EDA [aqui](02_EDA.ipynb).
-
-
+ 
 ### Funciones de la API Realizadas
 - `PlayTimeGenre(genero : str)`: Devuelve el año con más horas jugadas para un género específico.
 - `UserForGenre(genero : str)`: Retorna el usuario con más horas jugadas para un género y la acumulación de horas por año.
@@ -46,7 +41,6 @@ Posterior al trabajo con VADER, se definió una ponderación en la que derivado 
 
 Para cada consulta, se realizó un dataframe específico y se exportó en un parquet, esto para minimizar al máximo el peso de cada archivo y facilitar el deploy en render.
 
-Puede consultar el notebook en los que se desarrolla a detalle estas funciones a continuación: [Funciones](03_dfAuxiliares.ipynb).
 
 
 ### Modelo de Aprendizaje Automático
@@ -54,13 +48,11 @@ Puede consultar el notebook en los que se desarrolla a detalle estas funciones a
 
 
 
-Puede consultar el notebook en el que se desarrolla a detalle esta función a continuación: [Sistema_Recomendacion](04_SistemaDeRecomendacion.ipynb).
-
 
 ### Deployment 
-- Se desarrolló la API con el framework FastAPI para ofrecer consultas específicas sobre los datos, para esto nos apoyamos del archivo [main.py](main.py) en donde se especifica cada consulta.
+- Se desarrolló la API con el framework FastAPI para ofrecer consultas específicas sobre los datos, para esto nos apoyamos del archivo main.py en donde se especifica cada consulta.
 
-- Se deployó en Render para permitir la accesibilidad a la API, para esto se creó el documento [requirements.txt](requirements.txt) en el que se especifican los paquetes y librerias utlizados en el proyecto.
+- Se deployó en Render para permitir la accesibilidad a la API, para esto se creó el documento requirements.txt en el que se especifican los paquetes y librerias utlizados en el proyecto.
 
 
 ### Video
