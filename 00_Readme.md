@@ -15,7 +15,6 @@ Para este proyecto se proporcionaron 3 datasets:
 * _australian_users_items_ en el que se almacena información del tiempo de juego de cada usuario para los diferentes juegos que ha jugado. 
 * _australian_user_reviews_ en el que se almacena información de los usuarios e información de los reviews de los videojuegos que han jugado. 
 
-Puede consultar los archivos aqui: [output_steam_games](data\output_steam_games.json), [australian_users_items](data\australian_users_items.json), [australian_user_reviews](data\australian_user_reviews.json)
 
 ### Transformaciones y Feature Engineering
 - Se preparó cada dataset previo al Análisis Exploratorio, logrando la lectura de los mismos desanidando algunas columnas que se encontraban como listas de diccionarios o listas; así mismo eliminando columnas innecesarias, inputando con métodos estadísticos y/o eliminando valores nulos.
