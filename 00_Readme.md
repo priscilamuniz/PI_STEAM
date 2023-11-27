@@ -62,10 +62,17 @@ Puede consultar el notebook en el que se desarrolla a detalle esta función a co
 
 - Se deployó en Render para permitir la accesibilidad a la API, para esto se creó el documento [requirements.txt](requirements.txt) en el que se especifican los paquetes y librerias utlizados en el proyecto.
 
+- Para el deploy de la API se seleccionó la plataforma Render que es una nube unificada para crear y ejecutar aplicaciones y sitios web, permitiendo el despliegue automático desde GitHub. Para esto se siguieron estos pasos:
+
+    * Se generó un servicio nuevo en render.com, conectado al presente repositorio y utilizando requirements.txt como Runtime.
+    * E l servicio queda corriendo [aqui](https://steam-pi-4c9l.onrender.com/docs). 
+
+Como se indicó anteriormente, para el despliegue automático, Render utiliza GitHub y dado que el servicio gratuito cuenta con una limitada capacidad de almacenamiento, se realizó un repositorio exclusivo para el deploy.
+
 
 ### Video
 
-- En el siguiente enlace pueden enconrtar el video, el cual proporciona un breve resumen con lo más imporante del proyecto [Video](https://youtu.be/GuWibQ4A8yI).
+- En el siguiente enlace pueden enconrtar el video, el cual proporciona un breve resumen con lo más imporante del proyecto [Video](https://youtu.be/3FRkXWo55Yw).
 
 
 ### Áreas de oportunidad
