@@ -4,7 +4,7 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 from sklearn.metrics.pairwise import cosine_similarity
 from fastapi import FastAPI
-from sklearn.feature_extraction.text import TfidfVectorizer
+#from sklearn.feature_extraction.text import TfidfVectorizer
 
 app = FastAPI()
 
@@ -30,11 +30,15 @@ def PlayTimeGenre(genero:str):
 
     mascara = (df_PlaytimeGenre['genres'] == genero)
     df_PlayTimeGenre_sorted = df_PlaytimeGenre[mascara].sort_values(by='Total_horas_jugadas', ascending=False).head(1)                       
+    
+    if not df_PlayTimeGenre_sorted.empty:
+        year = df_PlayTimeGenre_sorted['released_year'].values[0]
+    else:
+        year = None  # o cualquier valor por defecto
 
     year = df_PlayTimeGenre_sorted['released_year'].values[0]
-    genre = df_PlayTimeGenre_sorted['genres'].values[0]
 
-    return {f'Año de lanzamiento con más horas jugadas para el género {genre}': year}
+    return {f'Año de lanzamiento con más horas jugadas para el género {genero}': year}
 
 
 @app.get('/UserForGenre')
