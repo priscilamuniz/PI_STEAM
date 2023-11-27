@@ -64,7 +64,7 @@ Como se indicó anteriormente, para el despliegue automático, Render utiliza Gi
 
 ### Video
 
-- En el siguiente enlace pueden enconrtar el video, el cual proporciona un breve resumen con lo más imporante del proyecto [Video](https://youtu.be/GuWibQ4A8yI).
+- En el siguiente enlace pueden enconrtar el video, el cual proporciona un breve resumen con lo más imporante del proyecto [Video](https://youtu.be/3FRkXWo55Yw).
 
 
 ### Áreas de oportunidad
